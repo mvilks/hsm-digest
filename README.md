@@ -32,5 +32,8 @@ The wrong digests that eID LV Middleware gives are calculated from twice repeate
 echo -n "hello world!hello world!" | sha1sum
 ```
 
-So far I have no clue why that's so.
+[PKCS#11](http://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html#_Toc416959746) defines two similar approaches to using message digest functions: using `C_Digest` or `C_DigestUpdate` + `C_DigestFinal`:
+ > **C\_Digest** is equivalent to a sequence of **C\_DigestUpdate** operations followed by **C\_DigestFinal**.
+
+It appears only `C_Digest` function in eID LV Middleware gives wrong digests.
 

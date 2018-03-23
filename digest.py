@@ -44,13 +44,22 @@ if __name__ == '__main__':
     }
     for key in digests:
         print('Calculating digest of string "%s"...' % key)
+        print('  Using `session.digest(data)`: ')
         digest = session.digest(key)
 
         hex = "".join("%02x" % d for d in digest)
         if hex != digests[key]:
-            print('Wrong digest! %s' % hex)
+            print('  ✗ Wrong digest! %s' % hex)
         else:
-            print('OK: %s' % hex)
+            print('  ✓ OK: %s' % hex)
+
+        print('  Using `session.digestSession().update(data).final()`: ')
+        digest2 = session.digestSession().update(key).final()
+        hex2 = "".join("%02x" % d for d in digest2)
+        if hex2 != digests[key]:
+            print('  ✗ Wrong digest! %s' % hex2)
+        else:
+            print('  ✓ OK: %s' % hex2)
 
     session.logout()
     
