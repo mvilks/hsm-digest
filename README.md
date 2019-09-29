@@ -1,3 +1,7 @@
+### Obsolete
+
+> *Starting from version 2.0.4 of [`latvia-eid-middleware`](https://download.eparaksts.lv/files/ep3updates/debian/dists/bionic/eparaksts/binary-amd64/Packages) digest functions have been fixed and now return correct values using both digest methods.*
+
 # HSM Digest
 
 ## Prerequisites
